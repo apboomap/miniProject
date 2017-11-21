@@ -8,6 +8,7 @@ import time
 def main():
 
     class Chat_Server(threading.Thread):
+        connections = []
             def __init__(self):
                 threading.Thread.__init__(self)
                 self.running = 1
@@ -22,6 +23,7 @@ def main():
                 s.bind((HOST,PORT))
                 s.listen(1)
                 self.conn, self.addr = s.accept()
+                self.connections.append(conn)
                 # Select loop for listen
                 while self.running == True:
                     inputready,outputready,exceptready \
@@ -29,10 +31,11 @@ def main():
                     for input_item in inputready:
                         # Handle sockets
                         message  = self.conn.recv(1024)
-                        if message :
-                            print message 
-                        else:
-                            break
+                         for connections in self.connection
+                            if message :
+                                print message 
+                            else:
+                                break
                     time.sleep(0)
             def kill(self):
                 self.running = 0
