@@ -9,36 +9,36 @@ def main():
 
     class Chat_Server(threading.Thread):
         connections = []
-            def __init__(self):
-                threading.Thread.__init__(self)
-                self.running = 1
-                self.user = None
-                self.conn = None
-                self.addr = None
-            def run(self):
-                HOST = ''
-                PORT = 8000
-                s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-                s.bind((HOST,PORT))
-                s.listen(1)
-                self.conn, self.addr = s.accept()
-                self.connections.append(conn)
-                # Select loop for listen
-                while self.running == True:
-                    inputready,outputready,exceptready \
-                      = select.select ([self.conn],[self.conn],[])
-                    for input_item in inputready:
-                        # Handle sockets
-                        message  = self.conn.recv(1024)
-                         for connections in self.connection
-                            if message :
-                                print message 
-                            else:
-                                break
-                    time.sleep(0)
-            def kill(self):
-                self.running = 0
+        def __init__(self):
+            threading.Thread.__init__(self)
+            self.running = 1
+            self.user = None
+            self.conn = None
+            self.addr = None
+        def run(self):
+            HOST = ''
+            PORT = 8000
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            s.bind((HOST,PORT))
+            s.listen(1)
+            self.conn, self.addr = s.accept()
+            self.connections.append(conn)
+            # Select loop for listen
+            while self.running == True:
+                inputready,outputready,exceptready \
+                = select.select ([self.conn],[self.conn],[])
+                for input_item in inputready:
+                    # Handle sockets
+                    message  = self.conn.recv(1024)
+                    for connections in self.connection
+                        if message :
+                            print message 
+                        else:
+                            break
+                time.sleep(0)
+        def kill(self):
+            self.running = 0
      
     class Chat_Client(threading.Thread):
             def __init__(self):
