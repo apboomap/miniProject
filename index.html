@@ -15,18 +15,11 @@
         }
         .chats{
             border: 1px solid #ccc;
-            width: 620px;
+            width: 640px;
             height: 220px;
             padding: 10px;
             overflow-y:scroll;
 
-        }
-        .chat{
-            color: slategrey;
-
-        }
-        .chat p{
-            margin: 1px 0;
         }
     </style>
 </head>
@@ -93,7 +86,8 @@
             });
             
             socket.on('new message', function(data){
-                $chat.append('<div class="alert alert-success" role="alert" style="padding:6;"><strong>'+ data.user + '</strong>:' + data.msg + '</div>') ;
+                $chat.append('<div class="alert alert-success" role="alert" style="padding:6;"><strong>'+ data.user + '</strong>:' 
+                    + data.msg + '</div>') ;
                 $(".chats").animate({ scrollTop: $(document).height() }, "slow");
                     return false;
             });
